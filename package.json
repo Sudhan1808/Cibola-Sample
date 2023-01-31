@@ -1,4 +1,13 @@
 {
+  
+  "Scripts":{
+    "Serve": "firebase emulators:start",
+  "deploy": "firebase deploy --only hosting",
+  "dev":"next dev",
+  "build": "next build && next export",
+  "start": "nest start",
+  "lint": "next lint"
+  },
   "dependencies": {
     "firebase-functions": "^4.2.0"
   }
