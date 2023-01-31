@@ -1,0 +1,147 @@
+body {
+    background-color: #87CEEB;
+}
+
+.startbutton {
+    background-image: url('/Polygon\ 1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    margin: 8px 50px;
+}
+
+
+.menubutton {
+    background-color: navy;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#progress-bar {
+    width: 100%;
+    height: 30px;
+    background-color: #ddd;
+    position: relative;
+  }
+  
+  #progress {
+    width: 0%;
+    height: 100%;
+    background-color: #16e91d;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  #timerbar {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    position: relative;
+    overflow: hidden;
+}
+
+#timerbar::before {
+    content: "";
+    width: 0;
+    height: 100%;
+    background: linear-gradient(to left, #15f31d, #799d51);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+#message-container {
+    background-color: #87CEEB;
+    color: navy;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    width: 100%;
+}
+
+#popup {
+    background-color: #87CEEB;
+    color: navy;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    width: 100%;
+}
+
+#restart {
+    background-color: #87CEEB;
+    color: navy;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#retryPayment {
+    background-color: #87CEEB;
+    color: navy;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#questions {
+    background-color: #87CEEB;
+    color: navy;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#answers {
+    background-color: #87CEEB;
+    color: navy;
+    padding: 14px 20px;
+    margin: 8px 50px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#score-container {
+    background-color: #87CEEB;
+    color: navy;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#fullScore {
+    background-color: #87CEEB;
+    color: navy;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#continue {
+    background-color: #87CEEB;
+    color: navy;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}

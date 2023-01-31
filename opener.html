@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./quizcompGP.css">
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <body>
+    <h1>Welcome to CIBOLA</h1>
+    <button id="google-signin-button">Sign in with Google</button>
+    <button type="button" id="startQuiz" class="startbutton" onclick="displayTopicButtons()">Start Quest</button><br>
+    <button type="button" id="backtoTopics" class="menubutton" onclick="backtoTopics()">Main Menu</button>
+    <script>document.getElementById("backtoTopics").style.display = "none";</script>
+    <div id="user-info"></div>
+    <button id="sign-out-button">Sign Out</button>
+    <script>
+    var signOutButton = document.getElementById("sign-out-button");
+        signOutButton.addEventListener("click", function() {
+        if(confirm("Are you sure you want to sign out? You may loose your progress")) {
+          firebase.auth().signOut().then(function() {
+            // Sign-out successful.
+          alert("You have successfully signed out!");
+          checkAuthState();
+          }).catch(function(error) {
+            // An error happened.
+          console.log(error);
+        });
+    }
+});
+
+    function checkAuthState() {
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            console.log("User is signed in");
+        } else {
+            // No user is signed in.
+            console.log("No user is signed in");
+            window.location.href = "./index.html";
+}
+});
+}
+   </script>
+     </head>
+    <div id="topic-buttons"></div>
+    <div id="round-number"></div>
+    <div id="message-container">
+      <div id="message"></div>
+      <div id="countdown"></div>
+      <div id="timerbar"></div>
+    </div>
+    <div id="popup"></div>
+    <div id="restart"></div>
+    <div id="retryPayment"></div>
+    <div id="shareButton"></div>
+    <div id="questions"></div>
+    <div id="answers"></div>
+    <div id="progress-bar">
+      <div id="progress"></div>
+    </div>    
+    <div id="score-container"></div>
+    <div id="fullScore"> </div>  
+    <div id="continue"></div>  
+    <div id="congratulations"></div>  
+    <div id="round-continue"></div>
+    <div id="failMessage"></div>
+    <script src="./quizcomp.js"></script>
+  </body>
+</html>

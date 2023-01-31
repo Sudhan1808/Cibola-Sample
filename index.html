@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+  </head>
+  <body>
+    <h1>Welcome to the Signin page</h1>
+    <button id="google-signin-button">Sign in with Google</button>
+
+    <script>
+      // Initialize Firebase
+      var firebaseConfig = {
+        apiKey: "AIzaSyD1OD96RZW9tkL5112KQV5ooe_7PyiSwlM",
+        authDomain: "cibola-demo.firebaseapp.com",
+        databaseURL: "https://cibola-demo-requz.firebaseio.com",
+        projectId: "cibola-demo",
+        storageBucket: "cibola-demo.appspot.com",
+        messagingSenderId: "145114065543",
+        appId: "1:145114065543:web:10a0d8e031160d0de62622",
+      };
+      firebase.initializeApp(firebaseConfig);
+
+      var googleSignInButton = document.getElementById("google-signin-button");
+googleSignInButton.addEventListener("click", function() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithRedirect(provider);
+});
+
+firebase.auth().getRedirectResult().then(function(result) {
+    if (result.credential) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // ...
+    }
+    // The signed-in user info.
+    var user = result.user;
+    console.log(user);
+}).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    console.log(errorCode, errorMessage, email, credential);
+});
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        // User is signed in.
+        var currentUrl = window.location.href;
+        // Redirect the user to the landing page with a query parameter containing the current URL
+        window.location.href = "./opener.html?fragment=" + currentUrl;
+    } else {
+        // No user is signed in.
+    }
+});
+    </script>
+  </body>
+</html>
